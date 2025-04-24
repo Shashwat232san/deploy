@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-center mb-4">📝 Blog Posts</h1>
+
+<div class="d-flex justify-content-end mb-3">
+    <a href="/add/" class="btn btn-primary">+ Add New Post</a>
+</div>
+
+{% if posts %}
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for post in posts %}
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <p class="card-text">{{ post.content }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="alert alert-info text-center">
+        No posts yet. Click "Add New Post" to create one!
+    </div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-center mb-4">✍️ Add New Post</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <form method="POST" class="card p-4 shadow-sm bg-white">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label">Title</label>
+                <input type="text" name="title" class="form-control" placeholder="Enter post title" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Content</label>
+                <textarea name="content" class="form-control" rows="5" placeholder="Enter content here" required></textarea>
+            </div>
+            <div class="d-flex justify-content-between">
+                <a href="/" class="btn btn-secondary">← Back</a>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
